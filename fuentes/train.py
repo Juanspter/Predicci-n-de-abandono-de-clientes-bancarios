@@ -43,7 +43,7 @@ def ejecutar(raiz, usar_mlflow=True):
             import mlflow.sklearn
         except ImportError as e:
             raise RuntimeError("Instala MLflow con: pip install -r requirements.txt") from e
-        mlflow.set_tracking_uri((raiz/"mlruns").as_uri())
+        mlflow.set_tracking_uri(f"sqlite:///{raiz / 'mlflow.db'}")
         mlflow.set_experiment("Actividad5_Churn_Sintetico")
     rows=[]; folds={}; curvas={}
     for nombre,(est,grid) in modelos.items():
@@ -66,7 +66,7 @@ def ejecutar(raiz, usar_mlflow=True):
                 mlflow.log_metrics({k:float(row[k]) for k in ["accuracy","precision","recall","f1","roc_auc","cv_auc_media","cv_auc_sd"]})
                 mlflow.log_artifact(str(salida/f"confusion_{nombre}.csv"))
                 mlflow.log_artifact(str(salida/f"predicciones_{nombre}.csv"))
-                mlflow.sklearn.log_model(busqueda.best_estimator_,artifact_path="modelo")
+                mlflow.sklearn.log_model(busqueda.best_estimator_,name="modelo",serialization_format="cloudpickle")
     tabla=pd.DataFrame(rows); tabla.to_csv(salida/"comparacion_modelos.csv",index=False)
     estad,pvalor=ttest_rel(folds["Regresion_logistica"],folds["Random_forest"]); (salida/"comparacion_estadistica.json").write_text(json.dumps({"metodo":"t pareada exploratoria sobre 5 folds compartidos; no prueba confirmatoria", "t":float(estad),"p_valor":float(pvalor),"fold_auc":folds},indent=2))
     plt.figure(figsize=(7,5))
