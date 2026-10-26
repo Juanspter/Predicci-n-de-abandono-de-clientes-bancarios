@@ -1,0 +1,3 @@
+modelo,accuracy,precision,recall,f1,roc_auc,cv_auc_media,cv_auc_sd,n_train,n_test,mejores_parametros
+Regresion_logistica,0.875,0.0,0.0,0.0,0.7707428571428572,0.7321904761904762,0.08340136301031195,600,200,"{""clasificador__C"": 0.1, ""clasificador__class_weight"": null}"
+Random_forest,0.875,0.0,0.0,0.0,0.7476571428571429,0.7083174603174603,0.06642981357052997,600,200,"{""clasificador__max_depth"": 4, ""clasificador__min_samples_leaf"": 1, ""clasificador__n_estimators"": 200}"

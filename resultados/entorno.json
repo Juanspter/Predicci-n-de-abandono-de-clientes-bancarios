@@ -1,0 +1,7 @@
+{
+  "python": "3.13.5",
+  "mlflow_disponible": false,
+  "filas": 600,
+  "positivos": 171,
+  "seed": 42
+}

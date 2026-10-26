@@ -1,0 +1,4 @@
+             modelo  accuracy  precision  recall  f1  roc_auc  cv_auc_media  cv_auc_sd  n_train  n_test                                                                                     mejores_parametros
+Regresion_logistica     0.875        0.0     0.0 0.0 0.770743      0.732190   0.083401      600     200                                           {"clasificador__C": 0.1, "clasificador__class_weight": null}
+      Random_forest     0.875        0.0     0.0 0.0 0.747657      0.708317   0.066430      600     200 {"clasificador__max_depth": 4, "clasificador__min_samples_leaf": 1, "clasificador__n_estimators": 200}
+Resultados: /mnt/data/Actividad5/resultados
