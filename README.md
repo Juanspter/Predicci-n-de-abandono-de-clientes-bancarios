@@ -3,7 +3,7 @@
 **Objetivo:** comparar regresión logística y random forest mediante búsqueda de hiperparámetros, validación cruzada estratificada de 5 folds y seguimiento de experimentos con MLflow. Caso académico: **no apto para decisiones bancarias reales**.
 
 ## Datos y decisiones
-- Origen: **generación sintética programática**, semilla 2026; **800 registros**; clase abandono positiva 12.5%. No se usan datos de clientes reales.
+- Origen: **generación sintética programática**, semilla 2026; **800 registros**; clase abandono positiva 12.5%. No se usan datos de clientes reales. La BBDD sintética fue creada con ayuda de chatgpt utilizando un prompt que dirigiera el resultado hacia un entregable  con información demográfica, perfil bancario del usuario/cliente. Eso llevaría a que fuera reproducible en un ambiente académico controlado y sobre todo, habiéndose probado y asegurado su usabilidad, llevarlo a entornos reales y privados.
 - Original: `datos/datos_ini/clientes_sinteticos_v1.csv`; limpio: `datos/datos_limp/clientes_limpios_v1.csv`.
 - `cliente_id` es identificador y se excluye de entrenamiento. `abandono` es objetivo binario (1 = abandona).
 - Variables: edad (años), antiguedad_anios, num_productos, saldo_mxn, cliente_activo, transacciones_digitales_mes, reclamaciones_12m, region, segmento.
@@ -49,4 +49,4 @@ git branch -M main
 git remote add origin https://github.com/TU_USUARIO/Actividad5.git
 git push -u origin main
 ```
-No subas secretos, datos reales de clientes ni el servidor MLflow abierto a Internet.
+Disclaimer para reproducción del caso: No subas secretos, datos reales de clientes ni el servidor MLflow abierto a Internet.
